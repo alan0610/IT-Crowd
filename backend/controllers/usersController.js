@@ -19,7 +19,7 @@ class UserController {
   static async getByEmail(email) {
     const user = await User.findOne({ where: { email } });
     if (!user) {
-      throw new Error('Email Invalido');
+      throw new Error("Email Invalido");
     }
     return user.dataValues;
   }
@@ -41,7 +41,7 @@ class UserController {
           const token = JwtUtils.generateToken({ email });
           res.status(200).json({ msg: "Valid email and password", token });
         } else {
-          res.json("Wrong password");
+          res.status(401).json("Wrong password");
         }
       } else {
         res.status(404).json("User not found");
