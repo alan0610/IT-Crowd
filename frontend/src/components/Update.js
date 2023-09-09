@@ -66,13 +66,12 @@ const Update = () => {
 
   const getProductById = () => {
     axios.get(URI1 + id)
-      .then((response) => response.json())
-      .then((data) => {
-        setName(data.name);
-        setDescription(data.description);
-        setImage_url(data.image_url);
-        setSelectedBrand(data.brandId);
-        setPrice(data.price);
+      .then((response) => {
+        setName(response.data.name);
+        setDescription(response.data.description);
+        setImage_url(response.data.image_url);
+        setSelectedBrand(response.data.brandId);
+        setPrice(response.data.price);
       })
       .catch((error) => console.error(error));
   };

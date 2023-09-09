@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -5,48 +6,31 @@ const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
+    roleId: 2
   });
-  const [error, setError] = useState(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData({ ...formData, [name]: value });
   };
 
-  //
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3031/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response) {
+      const response = await axios.post(
+        "http://localhost:3031/register",
+        formData
+      );
+      if (response.ok) {
         const data = await response.json();
-        setIsAuthenticated(true);
-        const token = data.token;
-        localStorage.setItem("jwtToken", token);
-        console.log(response, data);
-      } else {
-        setError("Incorrect credentials. Please try again");
+        navigate("/login")
+        console.log(data, response);
       }
     } catch (error) {
       console.error(error);
     }
   };
-
-  if (isAuthenticated) {
-    return navigate("/", { state: { isAuthenticated: true } });
-  }
 
   return (
     <div className="container px-5 py-24 mx-auto flex justify-center items-center h-screen">
@@ -90,10 +74,9 @@ const Login = () => {
             type="submit"
             className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-indigo active:bg-indigo-800"
           >
-            Iniciar sesión
+            Registrar
           </button>
         </div>
-        {error && <div className="text-red-500 mb-4">{error}</div>}
       </form>
     </div>
   );

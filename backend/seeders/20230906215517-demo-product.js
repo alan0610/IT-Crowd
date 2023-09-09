@@ -18,8 +18,8 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: "Auriculares Sony",
-          description: "Sony headphones are the ultimate choice for music lovers and high-quality audio enthusiasts. With a sleek design and exceptional comfort, these headphones provide an immersive sound experience. With Sony's leading technology, you'll enjoy deep bass, clear trebles, and advanced noise cancellation to immerse yourself in your favorite music anywhere.",
+          name: "Sony Earphones",
+          description: "Sony earphones are the ultimate choice for music lovers and high-quality audio enthusiasts. With a sleek design and exceptional comfort, these headphones provide an immersive sound experience. With Sony's leading technology, you'll enjoy deep bass, clear trebles, and advanced noise cancellation to immerse yourself in your favorite music anywhere.",
           image_url:
             "https://www.megatone.net/images/Articulos/zoom2x/1/02/MKT0046SON.jpg",
           price: 10000,
