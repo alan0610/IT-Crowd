@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import isAuthenticated from './IsAuthenticated'
 
-const URI = "http://localhost:3031/products/"
-const URI2 = "http://localhost:3031/brands"
+const URI = "https://it-crowd-backend.onrender.com/products/"
+const URI2 = "https://it-crowd-backend.onrender.com/brands"
 
 const ProductCard = () => {
   const [products, setProducts] = useState([]);

@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import isAuthenticated from "./IsAuthenticated";
 import axios from "axios";
 
-const URI = `http://localhost:3031/products`;
+const URI = `https://it-crowd-backend.onrender.com/products`;
 
 const Show = () => {
   const [products, setProducts] = useState([]);

@@ -19,7 +19,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3031/register",
+        "https://it-crowd-backend.onrender.com/register",
         formData
       );
       if (response.ok) {

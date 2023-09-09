@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
-const URI1 = "http://localhost:3031/products/";
-const URI2 = "http://localhost:3031/brands/";
+const URI1 = "https://it-crowd-backend.onrender.com/products/";
+const URI2 = "https://it-crowd-backend.onrender.com/brands/";
 
 const Product = () => {
   const { id } = useParams();
