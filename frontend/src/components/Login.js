@@ -18,24 +18,26 @@ const Login = () => {
     });
   };
 
-  //
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://it-crowd-backend.onrender.com/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://it-crowd-backend.onrender.com/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
-      if (response) {
+      if (response.ok) {
         const data = await response.json();
-        setIsAuthenticated(true);
         const token = data.token;
         localStorage.setItem("jwtToken", token);
-        console.log(response, data);
+        setIsAuthenticated(true);
+        navigate("/");
       } else {
         setError("Incorrect credentials. Please try again");
       }
@@ -44,9 +46,9 @@ const Login = () => {
     }
   };
 
-  if (isAuthenticated) {
+  /*if (isAuthenticated) {
     return navigate("/", { state: { isAuthenticated: true } });
-  }
+  }*/
 
   return (
     <div className="container px-5 py-24 mx-auto flex justify-center items-center h-screen">
