@@ -8,7 +8,7 @@ Frontend Server URL: https://it-crowd-frontend.onrender.com/
 
 ## Technologies Used
 
-- **Backend**:
+- ### Backend:
   - Node.js with Express.js as the framework to create the API.
   - [jsonwebtoken (JWT)](https://www.npmjs.com/package/jsonwebtoken) for authentication and token generation.
   - [bcrypt](https://www.npmjs.com/package/bcrypt) for password hashing and verification.
@@ -18,7 +18,7 @@ Frontend Server URL: https://it-crowd-frontend.onrender.com/
   - [Nodemon](https://www.npmjs.com/package/nodemon) for automatically restarting the server during development.
   - SQL and [Sequelize](https://sequelize.org/) as the ORM for the database.
   
-  ### Possible endpoints:
+  **Possible endpoints:**
   - GET products: "/products"
   - GET 1 product: "/products/:id"
   - POST product: "/products"
@@ -34,13 +34,13 @@ Frontend Server URL: https://it-crowd-frontend.onrender.com/
   - POST login: "/login"
   - POST register: "/register"
 
-- **Frontend**:
+- ### Frontend:
   - React for building the user interface.
   - [Tailwind CSS](https://tailwindcss.com/) for frontend design and styling.
   - [axios](https://axios-http.com/) for making HTTP requests to the backend.
   - [jwt-decode](https://www.npmjs.com/package/jwt-decode) for decoding JWT tokens in the frontend.
 
-  ### Possible endpoints:
+  **Possible endpoints:**
   - GET products: "/"
   - GET 1 product: "/:id"
   - GET create product: "/create"
