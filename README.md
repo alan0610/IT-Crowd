@@ -2,9 +2,18 @@
 
 This application is a CRUD (Create, Read, Update, Delete) system for products with authentication and authorization features. It allows users to register, log in, and manage products. Users can have administrator or standard roles, which determine their capabilities in the application.
 
-Backend Local URL: http://localhost:3031/
-Backend Server URL: https://it-crowd-backend.onrender.com/
-Frontend Server URL: https://it-crowd-frontend.onrender.com/
+Backend Local URL: http://localhost:3031/ <br> 
+Backend Server URL: https://it-crowd-backend.onrender.com/ <br>
+Frontend Server URL: https://it-crowd-frontend.onrender.com/ <br>
+
+### Users:
+**Admin user:** <br>
+email: admin@admin.com <br>
+password: admin <br>
+
+**Standard user:** <br>
+email: noadmin@gmail.com <br>
+password: noadmin <br>
 
 ## Technologies Used
 
