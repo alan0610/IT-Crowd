@@ -72,7 +72,7 @@ Frontend Server URL: https://it-crowd-frontend.onrender.com/
 1. Clone this repository.
 2. In the root directory, run `npm install` to install backend dependencies.
 3. Go to the `frontend` directory and run `npm install` to install frontend dependencies.
-4. Configure the environment variables from `.env.example` in a `.env` file.
+4. Configure the environment variables from `.env.example` in a `.env` file. <br>
   4.a. If you choose to use local database, run `npm run db:reset` to create the db, run migrations and seeders
 5. Run `nodemon app.js` in the root directory to start the Node.js server.
 6. In the `frontend` directory, run `npm start` to start the React application.
