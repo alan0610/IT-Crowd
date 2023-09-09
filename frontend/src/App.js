@@ -7,7 +7,6 @@ import Create from "./components/Create";
 import Update from "./components/Update";
 import CreateBrand from "./components/CreateBrand";
 import AdminRoute from "./components/AdminRoute";
-import Register from "./components/Register"
 
 function App() {
 
@@ -17,7 +16,6 @@ function App() {
         <Route path="/" element={<Show />} />
         <Route path="/:id" element={<ProductDetail />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
         <Route path="/create" element={<AdminRoute> <Create /> </AdminRoute>} />
         <Route path="/create/brand" element={<AdminRoute> <CreateBrand /> </AdminRoute>} />
         <Route path="/update/:id" element={<AdminRoute> <Update /> </AdminRoute>} />
