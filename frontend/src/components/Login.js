@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { useNavigate  } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
-  const [error, setError] = useState(null); // Estado para manejar mensajes de error
+  const [error, setError] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,22 +18,26 @@ const Login = () => {
     });
   };
 
+  //
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3031/login', {
-        method: 'POST',
+      const response = await fetch("http://localhost:3031/login", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
+        const data = await response.json();
+        const token = data.token;
+        localStorage.setItem("jwtToken", token);
         setIsAuthenticated(true);
-        console.log(response)
+        console.log(response);
       } else {
-        setError('Credenciales incorrectas. Inténtalo de nuevo.');
+        setError("Incorrect credentials. Please try again");
       }
     } catch (error) {
       console.error(error);
@@ -48,7 +52,10 @@ const Login = () => {
     <div className="container px-5 py-24 mx-auto flex justify-center items-center h-screen">
       <form onSubmit={handleSubmit} className="w-full max-w-sm">
         <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
+          <label
+            htmlFor="email"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
             Email
           </label>
           <input
@@ -62,7 +69,10 @@ const Login = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">
+          <label
+            htmlFor="password"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
             Password
           </label>
           <input
@@ -83,11 +93,7 @@ const Login = () => {
             Iniciar sesión
           </button>
         </div>
-        {error && (
-          <div className="text-red-500 mb-4">
-            {error}
-          </div>
-          )}
+        {error && <div className="text-red-500 mb-4">{error}</div>}
       </form>
     </div>
   );

@@ -1,26 +1,62 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Loader from "react-loaders";
+import axios from "axios";
+
+const URI1 = "http://localhost:3031/products/";
+const URI2 = "http://localhost:3031/brands/";
 
 const Product = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
+  const [brand, setBrand] = useState([]);
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const response = await fetch(`http://localhost:3031/products/${id}`);
-      const data = await response.json();
-      console.log(data);
-      setProduct(data);
+      try{
+      const response = await axios.get(URI1 + id);
+      if (response.status === 200) {
+        const data = response.data;
+        setProduct(data); // Indica que el product ha sido cargado
+      } else {
+        console.error("Error obtaining the brand");
+      } 
+    }catch (error) {
+      console.error("Error on the fetch", error);
+    }
     };
     fetchProduct();
   }, [id]);
 
+  useEffect(() => {
+    const fetchBrands = async () => {
+      try {
+        const response = await axios.get(URI2 + product.brandId);
+        if (response.status === 200) {
+          const data = response.data;
+          setBrand(data); // Indica que la marca ha sido cargada
+        } else {
+          console.error("Error obtaining the brand");
+        }
+      } catch (error) {
+        console.error("Error on the fetch", error);
+      }
+    };
+
+    if (product.brandId) {
+      fetchBrands();
+    }
+  }, [product.brandId]);
+
   return (
     <>
-      <Link to={"/"} className="flex display">
-        {"<--"}Back to products{" "}
-      </Link>
+      <div className="flex justify-start mr-4 ">
+        <Link
+          to="/"
+          className="m-5 bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-indigo active:bg-indigo-800"
+        >
+          {"<--"} Back to products
+        </Link>
+      </div>
       <section className="text-gray-600 body-font overflow-hidden">
         <div className="container px-5 py-10 mx-auto">
           <div className="md:w-4/5 mx-auto flex flex-wrap">
@@ -29,10 +65,8 @@ const Product = () => {
               className="md:w-1/2 w-full h-auto object-cover object-center rounded"
               src={product.image_url}
             />
-            <div className="md:w-1/2 w-full md:pl-10 md:py-6 mt-0 md:mt-20">
-              <h2 className="text-sm title-font text-gray-500 tracking-widest">
-                {product.brandId}
-              </h2>
+            <div className="md:w-1/2 w-full md:pl-10 md:py-6 mt-0 md:mt-20 flex flex-col items-center">
+              <img alt="logo" src={brand.logo_url} className="w-1/4 mb" />
               <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
                 {product.name}
               </h1>
@@ -46,7 +80,6 @@ const Product = () => {
           </div>
         </div>
       </section>
-      <Loader type="pacman" />
     </>
   );
 };

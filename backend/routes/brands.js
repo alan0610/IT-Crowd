@@ -10,7 +10,7 @@ router.get("/", BrandsController.getAll);
 router.get("/:id", BrandsController.getById);
 router.post(
   "/",
-  body("title", "title required").notEmpty(),
+  body("name", "name required").notEmpty(),
   body("logo_url", "logo picture required").notEmpty(),
   Validator.validateField,
   RoleValidator.isAdmin,

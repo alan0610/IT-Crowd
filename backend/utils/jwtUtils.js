@@ -13,7 +13,7 @@ class JwtUtils {
     if (autHeader.startsWith('Bearer ')) {
       token = autHeader.substring(7, autHeader.length);
     } else {
-      throw new Error('Token requerido - Bearer token');
+      throw new Error('Required Token - Bearer token');
     }
     const payload = jwt.verify(token, jwtSecret);
     return payload;

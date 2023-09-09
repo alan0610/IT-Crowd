@@ -1,6 +1,8 @@
 const models = require("../models");
 
 class ProductsController {
+
+  //GET ALL PRODUCTS
   static async getAll(req, res) {
     try {
       const { name, description } = req.query;
@@ -25,6 +27,7 @@ class ProductsController {
     }
   }
 
+  //GET PRODUCT BY ID
   static async getById(req, res) {
     const { id } = req.params;
     let product;
@@ -40,6 +43,7 @@ class ProductsController {
     }
   }
 
+  //CREATE PRODUCT
   static async create(req, res) {
     const data = req.body;
     try {
@@ -51,41 +55,44 @@ class ProductsController {
     }
   }
 
+  //UPDATE PRODUCT
   static async update(req, res) {
     const { id } = req.params;
-    const { title, description, image_url, price, brand_id } = req.body;
+    const { name, description, image_url, price, brandId } = req.body;
     let productsUpdated = {};
 
     try {
       productsUpdated = await models.Product.findByPk(id);
 
       if (productsUpdated) {
-        productsUpdated.name = title;
+        productsUpdated.name = name;
         productsUpdated.description = description;
         productsUpdated.image_url = image_url;
         productsUpdated.price = price;
-        productsUpdated.brand_id = brand_id;
+        productsUpdated.brandId = brandId;
         await productsUpdated.save();
         return res.status(200).json(productsUpdated);
       } else {
-        return res.status(404).json("No existe el producto");
+        return res.status(404).json("Product doesn't exist");
       }
     } catch (error) {
-      return res.status(500).json({ msg: "Internal Server error" });
+      console.log(error)
+      return res.status(500).json({ msg: "Internal Server error", error });
     }
   }
 
+  //DELETE PRODUCT
   static async delete(req, res) {
     try {
       const { id } = req.params;
       const deleteProduct = await models.Product.destroy({ where: { id } });
       if (deleteProduct) {
-        return res.status(200).send({ msg: "El producto fue eliminado" });
+        return res.status(200).send({ msg: "The product was eliminated" });
       } else {
-        return res.status(404).json({ msg: "Ese producto no existe" });
+        return res.status(404).json({ msg: "Product doesn't exist" });
       }
     } catch (error) {
-      res.status(500).json({ msg: "Ah ocurrido un error", error });
+      res.status(500).json({ msg: "An error has ocurred", error });
     }
   }
 }

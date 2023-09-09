@@ -20,7 +20,7 @@ module.exports = {
         },
         {
           name: "Apple",
-          logo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/625px-Apple_logo_black.svg.png",
+          logo_url: "https://image.freepik.com/iconos-gratis/mac-os_318-10374.jpg",
           createdAt: new Date(),
           updatedAt: new Date()
         }

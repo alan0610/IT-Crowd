@@ -4,6 +4,7 @@ const path = require('path');
 require('dotenv').config();
 const logger = require('morgan');
 
+//IMPORTING ROUTES
 const productRouter = require('./routes/products')
 const brandRouter = require('./routes/brands')
 const authRouter = require('./routes/auth');
@@ -21,7 +22,7 @@ app.use('/brands', brandRouter);
 app.use('/', authRouter);
 
 app.listen(3031, ()=>{ 
-  console.log("El servidor STOCKER corriendo en: http://localhost:3031/");
+  console.log("IT Crowd server running in: http://localhost:3031/");
 });
 
 module.exports = app;
