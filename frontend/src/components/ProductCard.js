@@ -85,13 +85,13 @@ const ProductCard = () => {
                     to={`/update/${id}`} // Ruta para actualizar el producto
                     className="text-blue-500 hover:text-blue-700"
                   >
-                    Editar
+                    Edit
                   </Link>
                   <button
                     onClick={() => handleDelete(id)} // Función para eliminar el producto
                     className="text-red-500 hover:text-red-700 cursor-pointer"
                   >
-                    Eliminar
+                    Delete
                   </button>
                 </div>
                 )}
