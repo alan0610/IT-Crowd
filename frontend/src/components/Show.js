@@ -38,22 +38,22 @@ const Show = () => {
     <div>
       <div className="flex justify-around">
         {user && user.roleId === 1 ? (
-          <div>
+          <div className="flex flex-col justify-center items-center sm:flex-row justify-around">
             <button
               onClick={handleLogout}
-              className="m-8 bg-red-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-indigo active:bg-indigo-800"
+              className="w-32 m-4 bg-red-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-indigo active:bg-indigo-800"
             >
               Logout
             </button>
             <Link
               to="/create"
-              className="m-8 bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-indigo active:bg-indigo-800"
+              className="m-4 bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-indigo active:bg-indigo-800"
             >
               Create Product
             </Link>
             <Link
               to="/create/brand"
-              className="m-8 bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-indigo active:bg-indigo-800"
+              className="m-4 bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-indigo active:bg-indigo-800"
             >
               Create Brand
             </Link>
@@ -61,7 +61,7 @@ const Show = () => {
         ) : (
           <Link
             to="/login"
-            className="mt-2 bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-indigo active:bg-indigo-800"
+            className="mt-4 bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-indigo active:bg-indigo-800"
           >
             Login
           </Link>
