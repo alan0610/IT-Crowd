@@ -3,8 +3,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const URI1 = "https://it-crowd-backend.onrender.com//products";
-const URI2 = "https://it-crowd-backend.onrender.com//brands";
+const URI1 = "https://it-crowd-backend.onrender.com/products";
+const URI2 = "https://it-crowd-backend.onrender.com/brands";
 
 const Create = () => {
   const [name, setName] = useState("");
