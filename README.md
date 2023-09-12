@@ -1,6 +1,6 @@
 # It-Crowd CRUD Application for Products with Login System
 
-This application is a CRUD (Create, Read, Update, Delete) system for products with authentication and authorization features. It allows users to register, log in, and manage products. Users can have administrator or standard roles, which determine their capabilities in the application.
+This application is a CRUD (Create, Read, Update, Delete) system for products with authentication and authorization features. It allows users to log in, and manage products. Users can have administrator or standard roles, which determine their capabilities in the application.
 
 Backend Local URL: http://localhost:3031/ <br> 
 Backend Server URL: https://it-crowd-backend.onrender.com/ <br>
